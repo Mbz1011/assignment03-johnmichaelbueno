@@ -6,6 +6,7 @@ on:
     - gh-actions
 
   pull_request:
+    branches:  # Corrected to add the 'branches' keyword
     - main
     - gh-actions
 
@@ -14,39 +15,40 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     # Checkout repo
-      - name: Fetch code /Checkout code
+      - name: Fetch code / Checkout code
         uses: actions/checkout@v4
 
-    #install Packages
+    # Install Packages
       - name: Install dependencies
         run: npm install
 
-    #install playwright
-      - name: Install playwright
+    # Install Playwright
+      - name: Install Playwright
         run: npx playwright install
 
-    #pull docker image
-      - name:
+    # Pull Docker image
+      - name: Pull Docker image  
         run: docker pull rasilva1986/my-vue-app:v1
 
-    #start application 
+    # Start application
       - name: Start the application
         run: docker run -d -p 3000:3000 rasilva1986/my-vue-app:v1
 
-    #wait until the application is up
+    # Wait until the application is up
       - name: Wait until the application is up
         run: npx wait-on http://localhost:3000
 
-    #run tests
+    # Run tests
       - name: Run tests
         run: npm run run-tests
 
-    #publish results
+    # Publish results
       - name: Save test results as artifacts
         uses: actions/upload-artifact@v4
         with:
           name: playwright-test-results
           path: ./playwright-report
+
           
 
 
