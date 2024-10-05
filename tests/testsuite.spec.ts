@@ -21,7 +21,7 @@ test.describe('Frontend tests', () => {
       await page.waitForTimeout(2000);
       await dashboardPage.performOpenClient();
       await listClientsPage.clickCreateClientButton();
-      await createClient.createClient("", "", "");
+      await createClient.createClient("John Doe", "john@example.com", "555-1234");
       await page.waitForTimeout(2000);
       await listClientsPage.performBackToList();
       await page.waitForTimeout(2000);

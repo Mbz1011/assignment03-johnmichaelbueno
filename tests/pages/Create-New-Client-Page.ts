@@ -21,9 +21,9 @@ export class CreateClientPage {
 
     // CreateClient method
     async createClient(clientName: string, clientEmail: string, clientTelephone: string) {
-        clientName = faker.person.fullName();
-        clientEmail = faker.internet.email();
-        clientTelephone = faker.phone.number();
+       // clientName = faker.person.fullName();
+        //clientEmail = faker.internet.email();
+        //clientTelephone = faker.phone.number();
         await this.ClientName.fill(clientName);
         await this.Email.fill(clientEmail);
         await this.Telephone.fill(clientTelephone);
