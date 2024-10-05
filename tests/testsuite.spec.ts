@@ -15,8 +15,9 @@ test.describe('Frontend tests', () => {
       const listClientsPage = new ListClientsPage(page);
       const updatedClientsDiv = page.locator('div').filter({ hasText: /^ClientsNumber: 3View$/ });
   
-      await loginPage.goto();
-      await loginPage.performLogin(`${process.env.TEST_USERNAME}`, `${process.env.TEST_PASSWORD}`)
+      await loginPage.goTo();
+     // await loginPage.performLogin(`${process.env.TEST_USERNAME}`, `${process.env.TEST_PASSWORD}`)
+      await loginPage.performLogin(`tester01`, `GteteqbQQgSr88SwNExUQv2ydb7xuf8c`)
       await expect(page.getByRole('heading', { name: 'Tester Hotel Overview' })).toBeVisible();
       await page.waitForTimeout(2000);
       await dashboardPage.performOpenClient();
