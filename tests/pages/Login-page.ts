@@ -17,8 +17,8 @@ export class LoginPage {
 
     // Methods / functions
     async goTo() {
-       // await this.page.goto(`${process.env.BASE_URL}login`);
-       await this.page.goto('http://localhost:3000/login');
+       await this.page.goto(`${process.env.BASE_URL}login`);
+       
     }
     async performLogin(username: string, password: string) {
         //fill out the form - 2 textfields and click the submit button
