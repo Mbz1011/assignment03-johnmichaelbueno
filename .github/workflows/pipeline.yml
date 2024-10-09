@@ -6,7 +6,7 @@ on:
     - gh-actions
 
   pull_request:
-    branches:  # Corrected to add the 'branches' keyword
+    branches: 
     - main
     - gh-actions
 

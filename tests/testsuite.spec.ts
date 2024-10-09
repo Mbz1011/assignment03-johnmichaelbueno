@@ -16,7 +16,7 @@ test.describe('Frontend tests', () => {
       const updatedClientsDiv = page.locator('div').filter({ hasText: /^ClientsNumber: 3View$/ });
   
       await loginPage.goTo();
-     await loginPage.performLogin(`${process.env.TEST_USERNAME}`, `${process.env.TEST_PASSWORD}`)
+      await loginPage.performLogin(`${process.env.TEST_USERNAME}`, `${process.env.TEST_PASSWORD}`)
       await expect(page.getByRole('heading', { name: 'Tester Hotel Overview' })).toBeVisible();
       await page.waitForTimeout(2000);
       await dashboardPage.performOpenClient();
@@ -40,8 +40,8 @@ test.describe('Backend tests', () =>{
     test.beforeAll('Token Acquisition', async ({ request }) => {
       const respToken = await request.post("http://localhost:3000/api/login", {
         data:{
-          username:"tester01",
-          password:"GteteqbQQgSr88SwNExUQv2ydb7xuf8c"
+          username:`${process.env.TEST_USERNAME}`,
+          password:`${process.env.TEST_PASSWORD}`
         }
       })
     
